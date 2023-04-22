@@ -87,11 +87,23 @@
 
 
 <style>
-textarea:focus, select:focus, select:active, input:focus, input:active, input:focus + label, input:active + label, label[for]:focus, label[for]:active {
-	color: #BF1722 !important;
-	background-color: #fff2a8 !important;
-	outline:solid #03C medium;
+:focus {
+  outline: none; /* Hide the default focus outline */
+  box-shadow: 0 0 0 4px rgba(0, 0, 255, 0.4); /* Create a custom focus style */
+}
+
+/* Define the focus style for elements that are clicked */
+:active:focus {
+  box-shadow: 0 0 0 4px rgba(0, 0, 255, 0.7); /* Make the focus style more prominent */
+}
+
+/* Define the focus style for keyboard users */
+@media screen and (max-width: 600px) {
+  :focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
   }
+}
     </style>
 
 <link rel='dns-prefetch' href='//www.googletagmanager.com' />
